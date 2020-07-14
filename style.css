@@ -1,0 +1,529 @@
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #ffffff;
+    margin: 0 auto;
+    min-width: 320px;
+    width: 100%;
+    font-size: 15px;
+    font-family: 'EB Garamond', serif;
+    color: #397e7a;
+    text-align: center;
+}
+
+main{
+    padding-top:50px;
+}
+
+p{
+    color: 	#397e7a;
+    font-family: 'EB Garamond', serif;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    color: 	#397e7a;
+    text-decoration: none;
+}
+a:hover{
+    color: grey;
+    transition: all 300ms;
+}
+header {
+    width: 100%;
+    min-width: 320px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.8);
+    top: 0px;
+    z-index: 10;
+    position: fixed;
+    text-align: center;
+}
+#header-wrapper{
+    max-width: 960px;
+    margin: 0 auto;
+	display: flex;
+	align-items: center;
+    justify-content: space-between;
+    padding: 0 20px 0 20px;
+}
+.title-name a{
+    font-size:20px;
+    padding-left: 20px;
+}
+.title-name a:hover{
+    color: gold;
+    transform: scale(1.01);
+}
+.inline-menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-right: 20px;
+}
+.item_menu{
+    color: 	#397e7a;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.item_menu:hover{
+    color: grey;
+    transform: scale(1.01);
+}
+
+.burger{
+    display:none;
+    color: 	#397e7a;
+    font-size: extra-large;
+}
+
+.burger:hover{
+    color: gold;
+}
+
+
+/* INTRO SECTION WITH ANIMATION IFRAME */
+#intro{
+    background-image: url('assets/Lea_Portrait_Loam_2019_B_300dpi web.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center; */
+}
+
+
+/* Text block "how would you describe your next great idea?" */
+#how-would-you{
+    background-color: #d9ebf4;
+    height: 100vh;
+    width: 100%;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+}
+#how-would-you p{
+    padding: 40px;
+}
+#quote{
+    color: #a86561;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+
+
+
+/* ABOUT SECTION */
+#about{
+    line-height: 1.3em;
+    height: 100vh;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#about-text{
+    text-align: left;
+    width: 50%;
+    padding: 50px;
+}
+#about-title{
+    font-size: 1.5em;
+    color: #e7acb7;
+}
+
+#about-tagline{
+    color: #e2bbc2;
+}
+#about-img{
+    background-image: url('assets/star_LeaThomasbyBelenPrietoBueno33.JPG');
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 50%;
+}
+
+
+
+/* PROJECTS SECTION */
+#projects{
+    background-color: #f1d8de;
+    padding: 100px 50px 100px 50px;
+}
+
+#projects-code{
+    /* max-width: 960px; */
+    display: flex;
+    flex-wrap: wrap;   
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+#projects-code div{
+    /* flex: 1; */
+    margin: 10px;
+    width: 250px;
+    height: 250px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+}
+
+#projects-code div:hover{
+    filter: brightness(95%);
+    transform: scale(1.01);
+    color: rgb(197, 174, 46);
+    transition: all 400ms;
+}
+#projects-code p,  #projects-code a{
+    position: relative;
+    bottom: 0px;
+    left: 0px;
+    font-size: 1em;
+    text-align: left;
+}
+
+#projects-code a{
+    color: #265754;
+    text-decoration: none;
+    padding: 0.5em 1em 0.5em 1em;
+    background-color: rgba(255,255,255, .7);
+}
+#projects-code a:hover{
+    color: rgb(121, 103, 0);
+    transform: scale(1.01);
+
+    transition: all 400ms;
+
+}
+
+/* VIDEO */
+#video{
+    margin:0;
+    background-color: #052238;
+}
+#hoppie-canyon{
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* ARTIST WEBSITE */
+#artist-website{
+    height: 40vh;
+    width: 100%;
+    background-color: #052238;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0 100px 0;
+}
+
+
+#artist-website{
+    margin: 0;
+}
+#artist-website a span{
+    color: #faf7db;
+    margin: 2em;
+    font-size: 2em;
+    letter-spacing: 0.1em;
+    display: block;
+}
+#artist-website a{
+    line-height: 2em;
+}
+#artist-website a span:hover{
+    color: rgb(245, 209, 5);
+    border-bottom: 1px solid rgb(245, 209, 5);
+    transition: all 600ms;
+}
+
+
+/* METAPHOR */
+#metaphor{
+    background-image: url(assets/leawovenhemp.JPG);
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 1.2em;
+}
+#metaphor p{
+    color: #ffffff;
+}
+
+/* CONTACT SECTION */
+#contact{
+    line-height: 2em;
+    height: 100vh;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* FOOTER */
+footer{
+    height: 50px;
+    /* max-width: 960px; */
+    width: 100%;
+	background-color: rgba(65, 96, 125, 0.8);
+    position: fixed;
+    bottom: 0px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#footer-menu{
+    display: flex;
+	align-items: center;
+    justify-content: space-around;
+    width: 25%;
+
+}
+
+#footer-menu a{
+    color: #f1d8de;
+}
+
+.fab, .fa-instagram, .fa-facebook-f, .fas, .fa-link, .fa-bandcamp, .fa-youtube,  .fa-github, .fa-linkedin-in{
+    color: #f1d8de;
+    size: 1.5em;
+}
+.fa, .fas {
+    font-weight: 900;
+  }
+  
+  .fa, .far, .fas {
+    font-family: "Font Awesome 5 Free";
+  }
+  
+  .fa-2x {
+    font-size: 2em;
+  }
+  
+  .fa, .fab, .fal, .far, .fas {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+  }
+  
+  .fa-2x {
+    font-size: 2em;
+  }
+  
+
+
+
+/* MEDIA QUERY*/
+@media screen and (max-width: 320x) {
+    #intro #how-would-you #about #projects #video #artist-website #metaphor #contact {
+        width: 100%;
+        display: block;
+    }
+
+
+
+
+
+  
+    header{
+        width: 100%;
+    }
+    #header-wrapper{
+        justify-content: space-around;
+        align-items: center;
+        padding-top: 1em;
+        padding: 0;
+        margin: 0;
+        flex-direction: column;
+    }
+    .title-name a{
+        padding: 0;
+    }
+    .item_menu{
+        display:none;
+        border-bottom: 1px solid #397e7a;
+        background-color: rgba(241,216,222, .9);
+        font-size: smaller;
+    }
+    .item_menu:hover{
+        background-color: rgba(218,172,183, .7);
+        transition: all 300ms;
+    }
+    .inline-menu{
+        display:block;
+        width: 100%;
+    }
+
+
+
+
+
+    #projects{
+        padding:100px 0 0 0;
+    }
+    #projects-code div{
+        width: 100%;
+        height: 250px;
+    } 
+
+
+
+
+    #how-would-you-web{
+        display: none;
+    }
+
+    #how-would-you-mobile{
+        display: block;
+    }
+
+    #artist-website {
+        width: 100%;
+        height: 80%;
+    }
+    #artist-website p{
+        padding: 0 20px 0 20px;
+    } 
+    #metaphor p{
+        padding: 0 20px 0 20px;
+        height: 70%;
+        font-size: .9em;
+    }
+
+    footer{
+        width: 100%;
+      
+    }
+    #footer-menu{
+
+        width: 100%;
+    }
+}
+@media screen and (max-width: 620px) {
+    #intro #how-would-you #about #projects #video #artist-website #metaphor #contact {
+        width: 100%;
+    }
+
+
+
+
+    header{
+        width: 100%;
+    }
+    #header-wrapper{
+        justify-content: space-around;
+        align-items: center;
+        padding-top: 1em;
+        padding: 0;
+        margin: 0;
+        flex-direction: column;
+    }
+    .title-name a{
+        padding: 0;
+    }
+    .item_menu{
+        display:none;
+        border-bottom: 1px solid #397e7a;
+        background-color: rgba(241,216,222, .9);
+        font-size: smaller;
+    }
+    .item_menu:hover{
+        background-color: rgba(218,172,183, .7);
+        transition: all 300ms;
+    }
+    .inline-menu{
+        display:block;
+        width: 100%;
+    }
+
+
+
+
+
+
+    #how-would-you{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1em;
+    }
+    #how-would-you-web{
+        display: none;
+    }
+    #how-would-you-mobile{
+        display: block;
+        height: 100%;
+    }
+
+    .burger{
+        display: block;
+    }
+
+    #projects{
+        padding:100px 0 0 0;
+    }
+    #projects-code div{
+        width: 100%;
+        height: 250px;
+    }
+
+    #video{
+        width: 100%;
+    }
+
+    #artist-website {
+        width: 100%;
+        height: 80%;
+    }
+    #artist-website p{
+        padding: 0 20px 0 20px;
+    } 
+
+    #metaphor p{
+        padding: 0 20px 0 20px;
+        height: 70%;
+        font-size: .9em;
+    }
+    #footer-menu{
+
+        width: 100%;
+    }
+}
