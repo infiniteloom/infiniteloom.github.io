@@ -117,6 +117,9 @@ header {
     align-items: center;
     text-align: justify;
 }
+#how-would-you-mobile{
+    display:none;
+}
 #how-would-you p{
     padding: 40px;
 }
@@ -284,10 +287,21 @@ header {
 #contact{
     line-height: 2em;
     height: 100vh;
-    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#contact-prompt{
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    height: 200px;
+}
+#contact-google{
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
 
