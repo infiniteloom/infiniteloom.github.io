@@ -32,8 +32,13 @@ a{
 }
 a:hover{
     color: grey;
-    transition: all 300ms;
+    transition:
+     all 300ms;
 }
+
+
+
+/* WEB MENU STYLINGS */
 header {
     width: 100%;
     min-width: 320px;
@@ -44,6 +49,7 @@ header {
     position: fixed;
     text-align: center;
 }
+
 #header-wrapper{
     max-width: 960px;
     margin: 0 auto;
@@ -51,7 +57,14 @@ header {
 	align-items: center;
     justify-content: space-between;
     padding: 0 20px 0 20px;
+     /* scroll-animations keywords */
+     transition: opacity 1s .25s ease-out;
+     opacity: 0;
+     will-change: opacity;
 }
+#header-wrapper.is-visible {
+    opacity: 1;
+}  
 .title-name a{
     font-size:20px;
     padding-left: 20px;
@@ -69,15 +82,20 @@ header {
 }
 .item_menu{
     color: 	#397e7a;
-    padding: 10px;
+    padding: 10px 10px 5px 10px;
     text-decoration: none;
 }
 
 .item_menu:hover{
     color: grey;
     transform: scale(1.01);
+    border-bottom: 1px solid;
+    transition: all 300ms;
 }
 
+
+
+/* MOBILE MENU STYLINGS */
 .burger{
     display:none;
     color: 	#397e7a;
@@ -87,29 +105,104 @@ header {
 .burger:hover{
     color: gold;
 }
+.close{
+    position: absolute;
+    top: 0;
+    right: 10%;
+    z-index: 1005;
+    padding: 22px;
+    line-height: 0;
+    width: 40px;
+    height: 40px;
+}
+#closeX{
+    width: 20px;
+    height: 20px;
+    color: rgba(141, 97, 108, 0.9);
+    font-size: 1.5em;
+}
+
+/* SLIDE-IN MOBILE MENU ANIMATION */
+.mobile-menu-back{
+    position: fixed;
+    margin-left: -150%;
+    background-color: rgba(241,216,222, 1);
+    transition: margin-left .5s, background-color 1.5s cubic-bezier(.55,0,.1,1) .5s;
+    transition-property: margin-left, background-color;
+    transition-duration: .5s, 2s;
+    transition-timing-function: ease-out, cubic-bezier(0.55, 0, 0.1, 1);
+    transition-timing-function: ease-out, cubic-bezier(0.55, 0, 0.1, 1);
+    transition-delay: 0s, 0s;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    z-index:1000;
+}
+.mobile-menu-container{
+    position: absolute;
+    background-color: rgba(241,216,222, 1);
+    padding: 20% 10px 20% 10%;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    width: 60%;
+}
+.mobile-menu{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
+    width: 100%;
+    padding: 36px;
+    overflow: auto;
+}
+.mobile-menu-links{
+    display:block;
+    font-size: 1.6em;
+    font-weight: bold;
+    color:  #90acaa;
+    letter-spacing: .04em;
+    line-height: 1.8em;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    padding-bottom: .618em;
+    text-align: left;
+    z-index: 1003;
+}
 
 
-/* INTRO SECTION WITH ANIMATION IFRAME */
+
+
+
+
+/* INTRO SECTION WITH OPACITY ANIMATION */
 #intro{
-    background-image: url('assets/Lea_Portrait_Loam_2019_B_300dpi web.jpg');
+    background-image: url('https://res.cloudinary.com/infiniteloom/image/upload/v1594992554/Unit%2001-%20Project/Images/Lea_Portrait_Loam_2019_B_300dpi_web_copy_r2gemv.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
     width: 100%;
     margin: 0 auto;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    text-align: center; */
+    opacity: 0.8;
+    transition: opacity 3s .25s ease-out;
+    will-change: opacity;
 }
+#intro.is-visible{
+    opacity: 1;
+  }
 
 
-/* Text block "how would you describe your next great idea?" */
+/* TEXT BLOCK SECTION "how would you describe your next great idea?" */
 #how-would-you{
-    background-color: #d9ebf4;
-    height: 100vh;
+    background-color: #e7f2f8;
+    height: 90vh;
     width: 100%;
     margin: 0px;
     display: flex;
@@ -117,154 +210,363 @@ header {
     align-items: center;
     text-align: justify;
 }
+
+#how-would-you p{
+    width: 100%;
+    color: #9cb7c5;
+    transition: opacity 1s .25s ease-out;
+    opacity: 0;
+    will-change: opacity;
+}
+  
+#how-would-you .is-visible p{
+    opacity: 1;
+}
+
+.how-would-you-text-animation{
+    animation-name: opacity;
+    color: #9cb7c5;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    -webkit-animation: opacity 5s infinite; /* Safari 4+ */
+    -moz-animation:    opacity 5s infinite; /* Fx 5+ */
+    -o-animation:      opacity 5s infinite; /* Opera 12+ */
+    animation:         opacity 5s infinite; /* IE 10+, Fx 29+ */
+}
+@keyframes opacity{
+      0%{
+        opacity: 1;
+      }
+      25%{
+        opacity: .6
+      }
+      50%{
+        opacity: .3;
+      }
+      75%{
+        opacity: .6
+      }
+      100%{
+        opacity: 1;
+      }
+      
+}
+#how-would-you-web{
+    width: 90%;
+    max-width: 960px;
+}
+.quote{
+    font-weight: bold;
+    font-style: normal;
+}
+.quote.is-visible{
+    animation-name: color;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    -webkit-animation: color 6s infinite; /* Safari 4+ */
+    -moz-animation:    color 6s infinite; /* Fx 5+ */
+    -o-animation:      color 6s infinite; /* Opera 12+ */
+    animation:         color 6s infinite; /* IE 10+, Fx 29+ */
+}
+@keyframes color{
+    0%{
+    color:  #627f8d;
+    }
+    50% {
+    color:#445b66;
+    }
+    100%{
+    color:  #627f8d;
+    } 
+}
+.quote:hover{
+    font-weight: bolder;
+    cursor: pointer;
+}
+
 #how-would-you-mobile{
     display:none;
+    max-width: 320px;
 }
-#how-would-you p{
-    padding: 40px;
+#how-would-you-mobile p{
+    max-width: 300px;
+    color: #9cb7c5;
 }
-#quote{
-    color: #a86561;
+.mobile-quote a{
+    color:  #9cb7c5;
     font-weight: bold;
-    font-size: 1.3em;
+    font-style: normal;
+    font-size: 1em;
+    transition: all 2s .25s ease-out;
+}
+.mobile-quote.is-visible a{ 
+    animation-name: color2;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    -webkit-animation: color2 6s infinite; /* Safari 4+ */
+    -moz-animation:    color2 6s infinite; /* Fx 5+ */
+    -o-animation:      color2 6s infinite; /* Opera 12+ */
+    animation:         color2 6s infinite; /* IE 10+, Fx 29+ */
+}
+@keyframes color2{
+    0%{
+    color:  #627f8d;
+    }
+    50% {
+    color:#445b66;
+    }
+    100%{
+    color:  #627f8d;
+    } 
+
 }
 
 
 
 
-/* ABOUT SECTION */
+
+/* ABOUT SECTION W TEXT SLIDE-RIGHT ANIMATIONS AND IMG SLIDE-LEFT ANIMATION*/
 #about{
     line-height: 1.3em;
     height: 100vh;
-    text-align: left;
+    position: relative;
+    background-image: linear-gradient( rgb(255, 255, 255), rgb(238, 238, 238));
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 #about-text{
     text-align: left;
-    width: 50%;
+    width: 40%;
     padding: 50px;
+    position: absolute;
+    left: 0;
+}
+#about-text h2, #about-text p{
+    opacity: 0.5;
 }
 #about-title{
     font-size: 1.5em;
-    color: #e7acb7;
+    color: #af8189;
+    transform: translate(-30px,0);
+    -webkit-transform: translate(-30px,0); 
+    -o-transform: translate(-30px,0);
+    -moz-transform: translate(-30px,0); 
 }
-
 #about-tagline{
-    color: #e2bbc2;
+    color: #cd9aa3;
+    transform: translate(-30px,0);
+    -webkit-transform: translate(-30px,0); 
+    -o-transform: translate(-30px,0);
+    -moz-transform: translate(-30px,0); 
 }
-#about-img{
+#about-img-web{
+    width: 48%;
     background-image: url('assets/star_LeaThomasbyBelenPrietoBueno33.JPG');
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
+    position: absolute;
+    right: 0;
     height: 100vh;
+    opacity: 0.6;
+    transform: translate(15px,0);
+    -webkit-transform: translate(15px,0); 
+    -o-transform: translate(15px,0);
+    -moz-transform: translate(15px,0); 
+}
+#about-img-mobile{
+    opacity: 0.6;
+    transition: all 2s .3s ease-out;
+}
+#about-text.is-visible p, #about-text.is-visible h2{
+    opacity:1;
+    transition: all 2s .3s ease-out;
+}
+#about-title.is-visible{
+    transform: translate(0,0);
+    -webkit-transform: translate(0,0); 
+    -o-transform: translate(0,0); 
+    -moz-transform: translate(0,0); 
+    transition: all 1s .3s ease-out;
+    opacity:1;
+}
+#about-tagline.is-visible{
+    transform: translate(0,0);
+    -webkit-transform: translate(0,0); 
+    -o-transform: translate(0,0); 
+    -moz-transform: translate(0,0); 
+    transition: all .5s .3s ease-out;
+    opacity:1;
+}
+#about-img-web.is-visible{
     width: 50%;
+    opacity:1;
+    transform: translate(0,0);
+    -webkit-transform: translate(0,0); 
+    -o-transform: translate(0,0); 
+    -moz-transform: translate(0,0); 
+    transition: all 1.5s .3s ease-out;
+}
+#about-img-mobile.is-visible{
+    opacity:1;
+}
+
+
+#about-img-mobile{
+    background-image: url('assets/star_LeaThomasbyBelenPrietoBueno33.JPG');
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: none;
+    width: 100%;
+    height: 500px;
 }
 
 
 
 /* PROJECTS SECTION */
 #projects{
-    background-color: #f1d8de;
-    padding: 100px 50px 100px 50px;
+    background-color: #f7f7f7;
 }
-
-#projects-code{
-    /* max-width: 960px; */
-    display: flex;
-    flex-wrap: wrap;   
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-}
-#projects-code div{
-    /* flex: 1; */
-    margin: 10px;
-    width: 250px;
-    height: 250px;
-    border-radius: 5px;
+.projects-header{
+    height: 75vh;
+    padding-top: 100px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     align-items: center;
-    background-position: center;
-    background-size: cover;
-}
-
-#projects-code div:hover{
-    filter: brightness(95%);
-    transform: scale(1.01);
-    color: rgb(197, 174, 46);
-    transition: all 400ms;
-}
-#projects-code p,  #projects-code a{
-    position: relative;
-    bottom: 0px;
-    left: 0px;
-    font-size: 1em;
-    text-align: left;
-}
-
-#projects-code a{
-    color: #265754;
-    text-decoration: none;
-    padding: 0.5em 1em 0.5em 1em;
-    background-color: rgba(255,255,255, .7);
-}
-#projects-code a:hover{
-    color: rgb(121, 103, 0);
-    transform: scale(1.01);
-
-    transition: all 400ms;
-
-}
-
-/* VIDEO */
-#video{
-    margin:0;
-    background-color: #052238;
-}
-#hoppie-canyon{
-    width: 100%;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-}
-
-/* ARTIST WEBSITE */
-#artist-website{
-    height: 40vh;
-    width: 100%;
-    background-color: #052238;
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    padding: 100px 0 100px 0;
+    background-color: rgb(218, 207, 207);
+    opacity: 0;
+    transition: opacity 3s .25s ease-out;
+    will-change: opacity;
 }
-
-
-#artist-website{
-    margin: 0;
+.projects-header  h2{
+    font-style: italic;
+    font-size: 5em;
+    color: #ffffff;
+    padding-bottom: 20px;
 }
-#artist-website a span{
-    color: #faf7db;
-    margin: 2em;
+.projects-header.is-visible{
+    opacity: 1;
+}
+.projects-nav{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+}
+.proj-nav-item{
+    font-size: 1.4em;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-bottom: 1px solid rgb(221, 191, 196);
+    color: rgb(85, 68, 68);
+}
+.proj-nav-item:hover{
+    color: black;
+    text-decoration: none;
+    border-bottom: 1px solid rgb(31, 29, 29);
+}
+.chevron-div{
+    padding-top: 100px;
+    background-color: rgb(218, 207, 207);
+    width: 100%;
+}
+.fa-chevron-down:before {
     font-size: 2em;
-    letter-spacing: 0.1em;
-    display: block;
+    -webkit-text-stroke: 3px rgb(218, 207, 207);
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    -webkit-animation: blink 1s infinite; /* Safari 4+ */
+    -moz-animation:    blink 1s infinite; /* Fx 5+ */
+    -o-animation:      blink 1s infinite; /* Opera 12+ */
+    animation:         blink 1s infinite; /* IE 10+, Fx 29+ */
 }
-#artist-website a{
-    line-height: 2em;
+@keyframes blink{
+0%{
+opacity: 1;
 }
-#artist-website a span:hover{
-    color: rgb(245, 209, 5);
-    border-bottom: 1px solid rgb(245, 209, 5);
-    transition: all 600ms;
+50% {
+opacity:.4;
 }
+100%{
+opacity: 1;
+} 
+
+}
+#projects-container{
+    padding: 0;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    margin: 0 auto; 
+    width: 100%;
+}
+.project-div{
+    margin: 0 auto;
+    background-color: rgb(235, 231, 231);
+    margin-bottom: 50px;
+    padding: 100px 0 100px 0;
+    width: 100%;
+    min-width: 400px;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.project-div:hover{
+    filter: brightness(95%);
+    transition: all 400ms;
+}
+.project-imgs-cont{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 90%;
+    padding: 30px 0 30px 0;
+    border-top: 3px solid rgb(206, 206, 206);
+    border-bottom: 3px solid rgb(206, 206, 206);
+    border-radius: 4px;
+}
+.feature-image{
+    width: 60%;
+}
+.project-image{
+    width: 30%;
+    min-width: 350px;
+    padding: 20px;
+}
+.project-info-cont{
+    margin-bottom: 20px;
+}
+.project-title{
+    font-size: 1.6em;
+    font-weight: bolder;
+}
+@media screen and (max-width: 800px) {
+    .project-imgs-cont{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .project-image{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 800px) {
+    .project-imgs-cont{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .project-image{
+        width: 100%;
+    }
+}
+
+
+
 
 
 /* METAPHOR */
@@ -276,12 +578,72 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-
+    /* filter: brightness(60%);
+    transition: brightness 2s 2s ease-in-out; */
     font-size: 1.2em;
+    margin-top: -50px;
+    opacity: 0;
+    transition: opacity 3s .25s ease-out;
+    will-change: opacity;
 }
 #metaphor p{
     color: #ffffff;
 }
+#metaphor.is-visible{
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+/* ARTIST WEBSITE */
+#artist-website{
+    height: 60vh;
+    width: 100%;
+    background-color: #4e4827;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0 100px 0;
+    opacity: 0.7;
+}
+#artist-website{
+    margin: 0;
+}
+#artist-website p a span{
+    color: #aaa044;
+    font-size: 1.3em;
+    letter-spacing: 0.1em;
+    display: block;
+}
+#artist-website p a{
+    color: #cbcaca;
+    font-size: 1.2em;
+}
+#artist-website a:hover{
+    color: rgb(180, 155, 13);
+    text-decoration: none;
+}
+#artist-website a span:hover{
+    color: rgb(233, 201, 20);
+    text-decoration: none;
+}
+#artist-website.is-visible{
+    opacity:1;
+    transition: all 2s .25s ease-out;
+}
+
+
+
+
 
 /* CONTACT SECTION */
 #contact{
@@ -297,12 +659,62 @@ header {
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 200px;
+    margin-top: 100px;
 }
 #contact-google{
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
+.form{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 100px;
+}
+.form-input{
+    width: 500px;
+    height: 20px;
+    padding: 5px;
+    border: 1px solid #a86561;
+    border-radius: 5px;
+    background-color: rgba(255,255,255, 0.7);
+    color: #397e7a;
+}
+.form-input-message{
+    width: 500px;
+    height: 200px;
+    padding: 10px;
+    border: 1px solid #a86561;
+    border-radius: 5px;
+    background-color: rgba(255,255,255, 0.7);
+    color: #397e7a;
+}
+
+#submit{
+    text-align: right;
+}
+#submit button{
+    width: 100px;
+    border: 1px solid #cfaeac;
+    border-radius: 5px;
+    background-color: rgba(243, 229, 229, 0.7);  
+    font-family: 'EB Garamond', serif;
+    margin-top: 10px;
+    height: 2em;
+    font-weight: bold;
+    color: #397e7a;
+}
+#submit button:hover{
+    background-color: rgba(218, 214, 214, 0.8);  
+    transition: all 400ms;
+}
+
+
+
+
+
+
+
 
 
 
@@ -324,20 +736,28 @@ footer{
     display: flex;
 	align-items: center;
     justify-content: space-around;
-    width: 25%;
-
+    width: 50%;
 }
 
 #footer-menu a{
     color: #f1d8de;
 }
+#footer-menu a:hover{
+    color: #fdf1f4;
+}
 
 .fab, .fa-instagram, .fa-facebook-f, .fas, .fa-link, .fa-bandcamp, .fa-youtube,  .fa-github, .fa-linkedin-in{
-    color: #f1d8de;
+    color: rgba(169,169,169, 1);
     size: 1.5em;
 }
-.fa, .fas {
+
+.fa, .fab, .fas {
     font-weight: 900;
+  }
+  .fa:hover, .fab:hover, .fas:hover {
+    font-weight: 900;
+    color: rgb(231, 228, 228);
+    transition: all 400ms;
   }
   
   .fa, .far, .fas {
@@ -367,93 +787,8 @@ footer{
 
 /* MEDIA QUERY*/
 @media screen and (max-width: 320x) {
-    #intro #how-would-you #about #projects #video #artist-website #metaphor #contact {
-        width: 100%;
-        display: block;
-    }
-
-
-
-
-
-  
-    header{
-        width: 100%;
-    }
-    #header-wrapper{
-        justify-content: space-around;
-        align-items: center;
-        padding-top: 1em;
-        padding: 0;
-        margin: 0;
-        flex-direction: column;
-    }
-    .title-name a{
-        padding: 0;
-    }
-    .item_menu{
-        display:none;
-        border-bottom: 1px solid #397e7a;
-        background-color: rgba(241,216,222, .9);
-        font-size: smaller;
-    }
-    .item_menu:hover{
-        background-color: rgba(218,172,183, .7);
-        transition: all 300ms;
-    }
-    .inline-menu{
-        display:block;
-        width: 100%;
-    }
-
-
-
-
-
-    #projects{
-        padding:100px 0 0 0;
-    }
-    #projects-code div{
-        width: 100%;
-        height: 250px;
-    } 
-
-
-
-
-    #how-would-you-web{
-        display: none;
-    }
-
-    #how-would-you-mobile{
-        display: block;
-    }
-
-    #artist-website {
-        width: 100%;
-        height: 80%;
-    }
-    #artist-website p{
-        padding: 0 20px 0 20px;
-    } 
-    #metaphor p{
-        padding: 0 20px 0 20px;
-        height: 70%;
-        font-size: .9em;
-    }
-
-    footer{
-        width: 100%;
-      
-    }
-    #footer-menu{
-
-        width: 100%;
-    }
-}
-@media screen and (max-width: 620px) {
-    #intro #how-would-you #about #projects #video #artist-website #metaphor #contact {
-        width: 100%;
+    #intro{
+        height: 100vh;
     }
 
 
@@ -461,6 +796,7 @@ footer{
 
     header{
         width: 100%;
+        height: 100%;
     }
     #header-wrapper{
         justify-content: space-around;
@@ -468,25 +804,32 @@ footer{
         padding-top: 1em;
         padding: 0;
         margin: 0;
-        flex-direction: column;
+        height: 100%;
     }
     .title-name a{
         padding: 0;
+        width: 50%;
     }
     .item_menu{
         display:none;
-        border-bottom: 1px solid #397e7a;
         background-color: rgba(241,216,222, .9);
         font-size: smaller;
+        padding: 1em 0 1em 0;
     }
-    .item_menu:hover{
-        background-color: rgba(218,172,183, .7);
-        transition: all 300ms;
+    .last-item-menu{
+        padding-bottom: 30px;
     }
     .inline-menu{
         display:block;
         width: 100%;
     }
+    .burger{
+        display: block;
+    }
+    .mobile-menu-back{
+        margin-left: -120%;
+    }
+
 
 
 
@@ -497,7 +840,9 @@ footer{
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 1em;
+        height: 100%;
+        padding-top: 50px;
+        padding-bottom: 50px;
     }
     #how-would-you-web{
         display: none;
@@ -507,37 +852,244 @@ footer{
         height: 100%;
     }
 
-    .burger{
+
+    #about{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 100%;
+        width: 100%;
+        background-color: #dbe6e5;
+    }
+    #about-text{
+        width: 90%;
+        padding: 5%;
+        height: 100%;
+        position: relative;
+        transition: all .25s .25s ease-out;
+    }
+    #about-img-web{
+        display: none;
+    }
+    #about-img-mobile{
         display: block;
     }
 
-    #projects{
-        padding:100px 0 0 0;
-    }
+
+
+
+    /* #projects{
+        padding:100px 0 100px 0;
+    } */
     #projects-code div{
         width: 100%;
         height: 250px;
-    }
+    } 
 
-    #video{
-        width: 100%;
-    }
+
+
 
     #artist-website {
         width: 100%;
         height: 80%;
+        margin: 0;
     }
-    #artist-website p{
-        padding: 0 20px 0 20px;
+    #artist-website p,   #artist-website a span{
+        width: 100%;
+        margin: 0;
     } 
+
 
     #metaphor p{
         padding: 0 20px 0 20px;
         height: 70%;
         font-size: .9em;
     }
-    #footer-menu{
 
+
+
+
+    #contact{
+        padding-left: 10px;
+    }
+    .form-input{
+        width: 300px;
+    }
+    .form-input-message{
+        width: 300px;
+    }
+    .form button{
+        height: 2em;
+    }
+    .form button p{
+        font-family: 'EB Garamond', serif;
+        font-weight: bold;
+        font-size: 2em;
+    }
+
+
+
+    footer{
+        width: 100%;
+        
+    }
+    #footer-menu{
+        width: 100%;
+    }
+}
+
+
+
+
+@media screen and (max-width: 620px) {
+
+    #intro{
+        height: 100vh;
+    }
+
+
+
+    header{
+        width: 100%;
+    }
+    #header-wrapper{
+        justify-content: space-around;
+        align-items: center;
+        padding: 1em 0 0 0;
+        margin: 0;
+    }
+    .title-name a{
+        padding: 0px;
+        width: 50%;
+        transform: none;
+    }
+    .item_menu{
+        display:none;
+        background-color: rgba(241,216,222, .9);
+        font-size: smaller;
+        padding: 1em 0 1em 0;
+    }
+    .item_menu:hover{
+        transform: none;
+    }
+    .burger{
+        display: block;
+    }    
+    .mobile-menu-back{
+        margin-left: -150%;
+    }
+
+
+    #how-would-you{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    #how-would-you-web{
+        display: none;
+    }
+    #how-would-you-mobile{
+        display: block;
+    }
+
+
+
+
+
+    #about{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        height: 50%;
+        background-color: #dbe6e5;
+    }
+    #about-text{
+        width: 90%;
+        padding: 5%;
+        display: block;
+        position: relative;
+    }
+    #about-text.is-visible p{ 
+        transition: opacity .2s .25s ease-out;
+    }
+    #about-img-web{
+        display: none;
+
+    }
+    #about-img-mobile{
+        display: block;
+    } 
+
+
+
+    #projects-code div{
+        width: 100%;
+        height: 250px;
+    }
+
+
+
+
+
+    #video{
+        width: 100%;
+    }
+
+
+
+
+
+    #artist-website {
+        width: 100%;
+        height: 80%;
+        margin: 0;
+    }
+
+    #artist-website p,   #artist-website p a span{
+        width: 100%;
+        margin: 0;
+    } 
+
+
+
+
+
+
+    #metaphor p{
+        padding: 0 20px 0 20px;
+        height: 70%;
+        font-size: .9em;
+    }
+
+
+
+    #contact{
+        padding-left: 10px;
+    }
+    .form-input{
+        width: 300px;
+    }
+    .form-input-message{
+        width: 300px;
+    }
+    .form button{
+        height: 2em;
+    }
+    .form button p{
+        font-family: 'EB Garamond', serif;
+        font-weight: bold;
+        font-size: 2em;
+    }
+
+
+    #footer-menu{
         width: 100%;
     }
 }
