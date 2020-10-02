@@ -13,7 +13,8 @@ fetch(url)
                 image3: entry.gsx$image3.$t,
                 description: entry.gsx$description.$t,
                 stack: entry.gsx$stack.$t,
-                url: entry.gsx$url.$t
+                url: entry.gsx$url.$t,
+                git: entry.gsx$git.$t
             };
         });
         // Send fetched projects to app function
@@ -25,16 +26,27 @@ const app = (data) => {
     const createProjectElement = (project) => {
         const $div = $('<div>').addClass('project-div').attr('id', project.title.replace(/ /g,''));
 
-        // Create top div with title, description
-        const $divInfo = $('<div>').addClass('project-info-cont')
-        const $title = $('<p>').addClass('project-title').text(`${project.title}`)
-        $divInfo.append($title)
-        const $description = ($('<p>').addClass('project-info').text(`${project.description}`));
-        const $stack = ($('<p>').addClass('project-stack').text(`${project.stack}`))
-        $divInfo.append($description, $stack)
+        // Project title
+        const $title = $('<a>').addClass('project-title').text(`${project.title}`).attr('href', `${project.url}`);
 
-        // Append info/top div to project div container
-        $div.append($divInfo)
+        // Create div with links
+        const $divLinks = $('<div>').addClass('project-links-cont')
+        const $livelink = ($('<a>').addClass('project-url').text('Live site').attr('href', `${project.url}`));
+        const $git = ($('<a>').addClass('project-git').text('GitHub').attr('href', `${project.git}`));
+        $divLinks.append($livelink, $git)
+
+        // Create div with title, description
+        const $divDet = $('<div>').addClass('project-details-cont')
+        const $description = ($('<p>').addClass('project-info').text(`${project.description}`));
+        const $stack = ($('<p>').addClass('project-stack').text(`Full stack: ${project.stack}`))
+        $divDet.append($description, $stack)
+
+
+        const $divInfo = $('<div>').addClass('project-info-cont')
+        $divInfo.append($divLinks, $divDet)
+
+        // Append title, links and details to project headers
+        $div.append($title, $divInfo)
 
         // Create bottom div with three image cards
         const $divImgs = $('<div>').addClass('project-imgs-cont')

@@ -215,7 +215,7 @@ header {
     width: 100%;
     color: #9cb7c5;
     transition: opacity 1s .25s ease-out;
-    opacity: 0;
+    opacity: 0.6;
     will-change: opacity;
 }
   
@@ -466,6 +466,7 @@ header {
     color: black;
     text-decoration: none;
     border-bottom: 1px solid rgb(31, 29, 29);
+    cursor: pointer;
 }
 .chevron-div{
     padding-top: 100px;
@@ -516,7 +517,6 @@ opacity: 1;
     align-items: center;
 }
 .project-div:hover{
-    filter: brightness(95%);
     transition: all 400ms;
 }
 .project-imgs-cont{
@@ -529,20 +529,43 @@ opacity: 1;
     border-bottom: 3px solid rgb(206, 206, 206);
     border-radius: 4px;
 }
-.feature-image{
-    width: 60%;
-}
 .project-image{
     width: 30%;
     min-width: 350px;
     padding: 20px;
 }
 .project-info-cont{
-    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 30%;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    min-width: 300px;
 }
 .project-title{
-    font-size: 1.6em;
+    font-size: 1.8em;
     font-weight: bolder;
+    border-bottom: 1px solid rgb(189, 174, 174);
+}
+.project-info{
+    font-style: italic;
+    margin: 0;
+}
+.project-links-cont{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: center;
+    width: 100%;
+}
+.project-git,.project-url{
+    font-weight: bolder;
+    font-size: 1.3em;
+    color: rgb(197, 148, 148);
+    padding: 0 10px;
+    margin-bottom: 20px;
 }
 @media screen and (max-width: 800px) {
     .project-imgs-cont{
@@ -578,11 +601,9 @@ opacity: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* filter: brightness(60%);
-    transition: brightness 2s 2s ease-in-out; */
     font-size: 1.2em;
     margin-top: -50px;
-    opacity: 0;
+    opacity: 0.6;
     transition: opacity 3s .25s ease-out;
     will-change: opacity;
 }
@@ -785,7 +806,7 @@ footer{
 
 
 
-/* MEDIA QUERY*/
+/* MEDIA QUERIES GENERAL*/
 @media screen and (max-width: 320x) {
     #intro{
         height: 100vh;
@@ -878,10 +899,6 @@ footer{
 
 
 
-
-    /* #projects{
-        padding:100px 0 100px 0;
-    } */
     #projects-code div{
         width: 100%;
         height: 250px;
