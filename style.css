@@ -681,8 +681,9 @@ opacity: 1;
 
 }
 .timpone-ill{
+    max-width: 900px;
     width: 100%;
-
+    overflow: hidden;
 }
 .form-prlx-con{
     /* padding-top: 20em; */
@@ -1149,7 +1150,7 @@ footer{
         font-size: .9em;
     }
 
-/* 
+
 
     #contact{
         padding-left: 10px;
@@ -1164,10 +1165,9 @@ footer{
         height: 2em;
     }
     .form button p{
-        font-family: 'EB Garamond', serif;
         font-weight: bold;
         font-size: 2em;
-    } */
+    }
 
 
     #footer-menu{
