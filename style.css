@@ -677,14 +677,10 @@ opacity: 1;
     padding-bottom: 50px;
 }
 .timpone-ill{
-    transform: translate(15px,0);
-    -webkit-transform: translate(15px,0); 
-    -o-transform: translate(15px,0);
-    -moz-transform: translate(15px,0); 
     width: 80%;
-    max-width: 900px;
+    max-width: 800px;
     min-width: 500px;
-    max-height: 70vh;
+    max-height: 90vh;
 }
 .timpone-ill.is-visible{
     transition: all 1s easein-out;
