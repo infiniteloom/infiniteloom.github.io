@@ -1,5 +1,6 @@
 html{
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -11,6 +12,8 @@ body {
     font-family: 'EB Garamond', serif;
     color: #397e7a;
     text-align: center;
+    overflow-x: hidden;
+
 }
 
 main{
@@ -440,9 +443,9 @@ header {
     transition: opacity .5s .25s ease-out;
     will-change: opacity;
 }
-.projects-header  h2{
+.projects-header h2{
     font-style: italic;
-    font-size: 5em;
+    font-size: 4em;
     color: #ffffff;
     padding-bottom: 20px;
 }
@@ -454,6 +457,18 @@ header {
     justify-content: center;
     flex-direction: row;
     width: 100%;
+}
+@media screen and (max-width: 380px){
+    .projects-nav{
+        flex-direction: column;
+        align-items: center;
+    }
+    .proj-nav-item{
+        padding: .4em;
+    }
+    .chevron-div{
+        padding-bottom: 30px;
+    }
 }
 .proj-nav-item{
     font-size: 1.4em;
@@ -499,7 +514,6 @@ opacity: 1;
 #projects-container{
     padding: 0;
     display: flex;
-    height: 100%;
     flex-direction: column;
     margin: 0 auto; 
     width: 100%;
@@ -510,7 +524,7 @@ opacity: 1;
     margin-bottom: 50px;
     padding: 100px 0 100px 0;
     width: 100%;
-    min-width: 400px;
+    min-width: 300px;
     border-radius: 2px;
     display: flex;
     flex-direction: column;
@@ -518,6 +532,9 @@ opacity: 1;
 }
 .project-div:hover{
     transition: all 400ms;
+}
+.project-vid-cont{
+    margin-bottom: 40px;
 }
 .project-imgs-cont{
     display: flex;
@@ -528,11 +545,17 @@ opacity: 1;
     border-top: 3px solid rgb(206, 206, 206);
     border-bottom: 3px solid rgb(206, 206, 206);
     border-radius: 4px;
+    box-sizing: border-box;
 }
 .project-image{
-    width: 30%;
-    min-width: 350px;
+    width: 100%;
+    min-width: 280px;
     padding: 20px;
+}
+.project-single-img-cont{
+    width: 30%;
+    height: 100%;
+    object-fit: contain;
 }
 .project-info-cont{
     display: flex;
@@ -654,9 +677,17 @@ opacity: 1;
     padding-bottom: 50px;
 }
 .timpone-ill{
+    transform: translate(15px,0);
+    -webkit-transform: translate(15px,0); 
+    -o-transform: translate(15px,0);
+    -moz-transform: translate(15px,0); 
     width: 80%;
     max-width: 900px;
+    min-width: 500px;
     max-height: 70vh;
+}
+.timpone-ill.is-visible{
+    transition: all 1s easein-out;
 }
 .lis-timpone-sign{
     position: absolute;
@@ -675,27 +706,23 @@ opacity: 1;
 .contact-header{
     background-color: transparent;
     margin: 0 auto;
-    padding: 3em;
+    padding: 3em 3em 1em 3em;
 }
-/* #contact-prompt a{
-
-    font-size: 1.2em;
-    text-align: center;
-    color: rgb(99, 70, 70);
-} */
-
 #contact-prompt span{
     margin: 0;
     font-size: 1.5em;
     font-weight: bold;
-    color: rgb(122, 83, 83);
+    color: rgb(51, 27, 27);
 }
-
 #contact-prompt span.is-visible{
     margin-top: 0%;
 }
 .contact-instruct{
-    text-align: left;
+    text-align: center;
+    padding-bottom: 20px;
+}
+.contact-instruct p{
+    color: rgb(122, 83, 83);
 }
 #contact-google{
     -ms-overflow-style: none;  /* IE and Edge */
@@ -778,7 +805,17 @@ opacity: 1;
     transition: all 400ms;
     color: #5f3d3a;
 }
-
+@media screen and (max-width: 380px){
+    .form{
+        width: 90%;
+    }
+    .timpone-ill{
+        width: 150%;
+    }
+    .lis-timpone-sign{
+        font-size: .8em;
+    }
+}
 
 
 
@@ -955,47 +992,6 @@ footer{
 
 
 
-    #artist-website {
-        width: 100%;
-        height: 80%;
-        margin: 0;
-    }
-    #artist-website p,   #artist-website a span{
-        width: 100%;
-        margin: 0;
-    } 
-    #metaphor p{
-        padding: 0 20px 0 20px;
-        height: 70%;
-        font-size: .9em;
-    }
-
-
-
-
-    #contact{
-        padding-left: 10px;
-    }
-    .form-input{
-        width: 300px;
-        height: 2em;
-        padding: 10px;
-    }
-    .form
-    .form-input-message{
-        width: 300px;
-
-    }
-    .form button{
-        height: 2em;
-    }
-    .form button p{
-        font-family: 'EB Garamond', serif;
-        font-weight: bold;
-        font-size: 2em;
-    }
-
-
 
     footer{
         width: 100%;
@@ -1096,64 +1092,7 @@ footer{
 
 
 
-    #projects-code div{
-        width: 100%;
-        height: 250px;
-    }
 
-
-
-
-
-    #video{
-        width: 100%;
-    }
-
-
-
-
-
-    #artist-website {
-        width: 100%;
-        height: 80%;
-        margin: 0;
-    }
-
-    #artist-website p,   #artist-website p a span{
-        width: 100%;
-        margin: 0;
-    } 
-
-
-
-
-
-
-    #metaphor p{
-        padding: 0 20px 0 20px;
-        height: 70%;
-        font-size: .9em;
-    }
-
-/* 
-
-    #contact{
-        padding-left: 10px;
-    }
-    .form-input{
-        width: 300px;
-    }
-    .form-input-message{
-        width: 300px;
-    }
-    .form button{
-        height: 2em;
-    }
-    .form button p{
-        font-family: 'EB Garamond', serif;
-        font-weight: bold;
-        font-size: 2em;
-    } */
 
 
     #footer-menu{

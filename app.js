@@ -14,7 +14,8 @@ fetch(url)
                 description: entry.gsx$description.$t,
                 stack: entry.gsx$stack.$t,
                 url: entry.gsx$url.$t,
-                git: entry.gsx$git.$t
+                git: entry.gsx$git.$t,
+                video: entry.gsx$video.$t
             };
         });
         // Send fetched projects to app function
@@ -32,31 +33,53 @@ const app = (data) => {
         // Create div with links
         const $divLinks = $('<div>').addClass('project-links-cont')
         const $livelink = ($('<a>').addClass('project-url').text('Live site').attr('href', `${project.url}`));
-        const $git = ($('<a>').addClass('project-git').text('GitHub').attr('href', `${project.git}`));
-        $divLinks.append($livelink, $git)
+
+        if(project.git != 'na'){
+            const $git = ($('<a>').addClass('project-git').text('GitHub').attr('href', `${project.git}`));
+            $divLinks.append($livelink, $git)
+        }else{
+            $divLinks.append($livelink)
+        }
 
         // Create div with title, description
-        const $divDet = $('<div>').addClass('project-details-cont')
-        const $description = ($('<p>').addClass('project-info').text(`${project.description}`));
-        const $stack = ($('<p>').addClass('project-stack').text(`Full stack: ${project.stack}`))
-        $divDet.append($description, $stack)
+        // const $divDet = $('<div>').addClass('project-details-cont')
+        // const $description = ($('<p>').addClass('project-info').text(`${project.description}`));
+        // const $stack = ($('<p>').addClass('project-stack').text(`Full stack: ${project.stack}`))
+        // $divDet.append($description, $stack)
+        // $divDet.append($description)
+
 
 
         const $divInfo = $('<div>').addClass('project-info-cont')
-        $divInfo.append($divLinks, $divDet)
+        $divInfo.append($divLinks)
 
         // Append title, links and details to project headers
         $div.append($title, $divInfo)
 
+
+
         // Create bottom div with three image cards
         const $divImgs = $('<div>').addClass('project-imgs-cont')
-        $divImgs.append($('<img />', {src: project.image1}).addClass('project-image'))
-        $divImgs.append($('<img />', {src: project.image2}).addClass('project-image'))
-        $divImgs.append($('<img />', {src: project.image3}).addClass('project-image'))
+        $divImgs.append($('<div>').addClass('project-single-img-cont').append($('<img />', {src: project.image1}).addClass('project-image')))
+        $divImgs.append($('<div>').addClass('project-single-img-cont').append($('<img />', {src: project.image2}).addClass('project-image')))
+        $divImgs.append($('<div>').addClass('project-single-img-cont').append($('<img />', {src: project.image3}).addClass('project-image')))
 
-        $div.append($divImgs)
+        
 
-
+        // Create video div 
+        if(project.video != 'na'){
+            // console.log('project video is', project.video)
+            const $divvid = $('<iframe/>', {
+                id: 'video',
+                src: project.video,
+                width: 560,
+                height: 315,
+                allowfullscreen: ''
+              }).addClass('project-vid-cont') 
+            $div.append($divvid, $divImgs)
+        }else{
+            $div.append($divImgs)
+        }
 
 
         // Populate the projects nav
@@ -139,22 +162,19 @@ $mobileLinks.on('click', showMenu);
 
 // Derived from a helper function from: http://stackoverflow.com/a/7557433/274826
 function isElementInViewport(el) {
-// if (typeof jQuery === "function" && el instanceof jQuery) {
-//     el = el[0];
-// }
-//The Element.getBoundingClientRect() method returns the size of an element and its position relative to the viewport. (MDN)
-var rect = el.getBoundingClientRect();
+    //The Element.getBoundingClientRect() method returns the size of an element and its position relative to the viewport. (MDN)
+    var rect = el.getBoundingClientRect();
 
-return (
-    (rect.top <= 0
-        && rect.bottom >= 0)
-    ||
-    (rect.bottom >= (window.innerHeight  || document.documentElement.clientHeight ) &&
-        rect.top <= (window.innerHeight  || document.documentElement.clientHeight ))
-    ||
-    (rect.top >= 0 &&
-        rect.bottom <= (window.innerHeight  || document.documentElement.clientHeight ))
-    );
+    return (
+        (rect.top <= 0
+            && rect.bottom >= 0)
+        ||
+        (rect.bottom >= (window.innerHeight  || document.documentElement.clientHeight ) &&
+            rect.top <= (window.innerHeight  || document.documentElement.clientHeight ))
+        ||
+        (rect.top >= 0 &&
+            rect.bottom <= (window.innerHeight  || document.documentElement.clientHeight ))
+        );
 }
 
 
