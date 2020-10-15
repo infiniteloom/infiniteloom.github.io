@@ -557,6 +557,11 @@ opacity: 1;
     height: 100%;
     object-fit: contain;
 }
+@media screen and (max-width: 800px){
+    .project-single-img-cont{
+        width: 100%;
+    }
+}
 .project-info-cont{
     display: flex;
     justify-content: space-around;
