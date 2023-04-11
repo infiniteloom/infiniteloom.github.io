@@ -1,31 +1,77 @@
+import React, { useEffect, useState } from "react";
 
-import { ArrowRightIcon } from "@heroicons/react/solid";
-import React from "react";
+function Navbar() {
+  const [topHideAll, setTopHideAll] = useState(false)
+  const [rightHideAll, setRightHideAll] = useState(false)
+  const [bottomHideAll, setBottomHideAll] = useState(false)
+  const [leftHideAll, setLeftHideAll] = useState(false)
 
-export default function Navbar() {
+  const navHoverTop = () => {
+    console.log('top')
+    setTopHideAll(!topHideAll)
+  }
+  const navHoverRight = () => {
+    console.log('tight')
+    setRightHideAll(!rightHideAll)
+  }
+  const navHoverBottom = () => {
+    console.log('bottom')
+    setBottomHideAll(!bottomHideAll)
+  }
+  const navHoverLeft = () => {
+    console.log('left')
+    setLeftHideAll(!leftHideAll)
+  }
   return (
-    <header className="bg-gray-800 md:sticky top-0 z-10">
-      <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-            <div className="title-font font-medium text-white mb-4 md:mb-0">
-                <a href="#intro" className="ml-3 text-xl">
-                    Lea Thomas
-                </a>
-            </div>
-            <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700	flex flex-wrap items-center text-base justify-center">
-                <a href="#projects" className="mr-5 hover:text-white">
-                    Recent Work
-                </a>
-                <a href="#skills" className="mr-5 hover:text-white">
-                    Services
-                </a>
-            </nav>
-            <a
-            href="#contact"
-            className="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0">
-            Contact
-            <ArrowRightIcon className="w-4 h-4 ml-1" />
+    <header >
+      <div>
+        <nav className="main-nav-container">
+          
+            <a className={`nav-top h1 main-nav-item 
+              ${ rightHideAll ? 'hidden' : '' } 
+              ${bottomHideAll ?  'hidden' : '' } 
+              ${leftHideAll ? 'hidden' : '' }`} 
+              href="#intro" onMouseEnter={navHoverTop} onMouseLeave={navHoverTop} >
+              Lea 
             </a>
+            
+            <a className={`nav-right main-nav-item 
+              ${ leftHideAll ? 'hidden' : '' }
+              ${ topHideAll ? 'hidden' : '' } 
+              ${ bottomHideAll ? 'hidden' : '' }`} 
+              href="#projects" onMouseEnter={navHoverRight} onMouseLeave={navHoverRight} >
+              Projects
+            </a>
+            <a  className={`nav-bottom main-nav-item 
+              ${ topHideAll ? 'hidden' : '' } 
+              ${ rightHideAll ? 'hidden' : '' } 
+              ${ leftHideAll ? 'hidden' : '' }`} 
+              href=" #contact" onMouseEnter={navHoverBottom} onMouseLeave={navHoverBottom} >
+              Contact
+            </a>
+            <a className={`nav-left main-nav-item 
+              ${ bottomHideAll ? 'hidden' : '' } 
+              ${ topHideAll ? 'hidden' : '' } 
+              ${ rightHideAll ? 'hidden' : '' }`} 
+              href="#services" onMouseEnter={navHoverLeft} onMouseLeave={navHoverLeft} >
+              Services
+            </a>
+            
+            
+        </nav>
       </div>
     </header>
   );
+
+
 }
+// function navEffect() {
+//   return ``
+// }
+// function handleMouseEnter(e){
+//   const [isHover, setIsHovering] = useState(false);
+//   setIsHovering(true)
+//   console.log('is hovering', e.target)
+// }
+
+export default Navbar

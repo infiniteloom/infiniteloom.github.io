@@ -2,24 +2,25 @@
 
 import React from "react";
 import Intro from "./components/Intro";
-import Contact from "./components/Contact";
+// import Contact from "./components/Contact";
 import Navbar from "./components/Navbar";
-import Projects from "./components/Projects";
-import Projectsintro from "./components/Projectsintro";
-import Skills from "./components/Skills";
+// import Projects from "./components/Projects";
+// import Projectsintro from "./components/Projectsintro";
+// import Skills from "./components/Skills";
 
 
 export default function App() {
   return (
     <main className="main-wrapper">
-      <Navbar />
-      <div className="main-horz-container">
-        <Intro />
-        <Projectsintro />
-        <Projects />
-        <Skills />
+      <div className="main-nav-wrapper">
+        <Navbar />
       </div>
-      <Contact />
+      <div className="intro-wrapper">
+        <Intro />
+        {/* <Projectsintro />
+        <Projects /> */}
+      </div>
+      {/* <Contact /> */}
     </main>
   );
 }
