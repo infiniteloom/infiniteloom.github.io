@@ -1,0 +1,381 @@
+/*Hides Reset button from quick links menu on collection /home page 
+March 2 2022 */
+button.Button.Button--secondary[data-action="reset-tags"] {
+  display: none !important;
+}
+.CollectionInner{
+  flex-direction: column !important;
+}
+#shopify-section-collection-template header.PageHeader {
+  margin: 10px 0;
+}
+#shopify-section-collection-template header.PageHeader .SectionHeader__Heading{
+  text-align: left
+}
+.CollectionInner .Linklist__Item > .Link {
+  text-transform: uppercase;
+  text-align: left;
+  font-size: 12px !important;
+}
+.Header__Wrapper{
+  padding: 10px 24px;
+}
+.CollectionItem__Wrapper{
+  transition: all .3s ease-in-out;
+}
+.CollectionItem__Wrapper:hover {
+  opacity: .8;
+}
+.CollectionInner ul.Linklist {
+  display: none;
+}
+/* .CollectionInner ul.Linklist {
+  text-align: left;
+  display: flex;
+  justify-content: flex-start;
+  width: auto;
+  min-width: 100px;
+  padding: 40px 0 10px;
+  font-family: 'Roboto';
+} */
+.supports-sticky .Search[aria-hidden="true"] + .Header--transparent{
+  color: #000;
+}
+.CollectionInner ul.Linklist li.Linklist__Item{
+  width: auto;
+
+  margin-right: 15px;
+}
+.CollectionInner button.Collapsible__Button.Heading.u-h6 {
+  display: none;
+}
+.CollectionInner .Linklist__Item::before{
+  display: none;
+}
+.CollectionInner .Link.Link--primary.is-active{
+  font-weight: bold;
+}
+.CollectionToolbar {
+  display: none !important;
+}
+@media screen and (max-width: 640px){
+  .CollectionInner ul.Linklist {
+
+    padding: 20px 0 20px;
+  }
+  .Header__FlexItem.Header__FlexItem--logo {
+    max-width: unset;/*LT*/
+    min-width: 200px;
+  }
+  .Header__FlexItem--fill:last-child{
+      top:20px;
+      right: 20px; 
+  }
+  .CollectionInner ul.Linklist {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+  .Linklist__Item{
+    margin-bottom: 5px;
+  }
+  .Collapsible__Inner {
+    display: block;
+    /* display: none; */
+    height: auto;
+    visibility: visible; 
+  }
+}
+.CollectionMain .Collapsible{
+  border: none !important;
+  padding: 0 50px;
+}
+/* Logo hover filter */
+.Header__LogoImage:hover {
+  /* opacity: .8 */
+  filter: brightness(80%);
+  -webkit-transition: 1s -webkit-filter linear;
+-moz-transition: 1s -moz-filter linear;
+-moz-transition: 1s filter linear;
+-ms-transition: 1s -ms-filter linear;
+-o-transition: 1s -o-filter linear;
+transition: 1s filter linear, 1s -webkit-filter linear;
+}
+
+.Header__LogoImage,
+.Header__FlexItem.Header__FlexItem--logo{
+min-width: 400px
+}
+
+/* HP Collection list header */
+.CollectionList--grid h2,
+.CollectionItem .Heading,
+.CollectionItem h2 {
+line-height: 1em;
+text-transform: none;
+letter-spacing: 0em;
+transition: all .2s ease-in-out;
+}
+.CollectionItem h2:hover{
+opacity: .7;
+}
+.CollectionItem__Link{
+color: #fff;
+font-weight: bold;
+border: none;
+}
+.Slideshow .Button::before{
+background-color: transparent !important;
+
+}
+.Slideshow .Button{
+  border: transparent;
+  padding: 0;
+  color: #fff !important;
+}
+a.ButtonGroup__Item.Button {
+  text-transform: none;
+  font-family: var(--heading-font-family) !important;
+}
+h2.SectionHeader__Heading.SectionHeader__Heading--emphasize.Heading.u-h1,
+h2.ArticleItem__Title.Heading.u-h2,
+h1.Article__Title.Heading.u-h1,
+.SectionHeader__Heading.SectionHeader__Heading, .SectionHeader__SubHeading.SectionHeader__SubHeading {
+  text-transform: uppercase;
+}
+div#shopify-section-announcement{
+z-index: 9999;
+} 
+
+.SidebarMenu__Nav--secondary,
+.SidebarMenu__Nav--secondary .Linklist__Item {
+  text-transform: uppercase;
+  width: 90%;
+  text-align: left;
+  margin: 0;
+  position: absolute;
+  color: var(--navigation-text-color);
+  bottom: 30px;
+}
+
+.supports-hover .SidebarMenu .Link--primary:hover,
+.SidebarMenu .Heading:hover,
+.SidebarMenu__Nav--secondary:hover,
+.CollectionInner ul.Linklist li.Linklist__Item:hover,
+.CollectionInner .Linklist__Item > .Link:hover {
+  color: grey;
+}
+
+/* Footer Newsletter Signups */
+#section-footer .Form__Submit.Button.Button--primary:before {
+  background-color: transparent ;
+}
+#section-footer input.Form__Input {
+  width: 100%;
+  height: 45px;
+  text-align: center;
+} 
+.Footer__Copyright a.Link.u-h7 {
+  font-size: 10px;
+
+  color: #9e9b9b;
+}
+#section-footer .Form__Submit.Button.Button--primary {
+  color: var(--navigation-text-color);
+  transition: all .3 ease-in-out;
+  margin-top: 0;
+  padding: 14px;
+  margin-left: 4px;
+  letter-spacing: .1em;
+  border: unset;
+  border-bottom:1px solid var(--border-color)
+}
+#section-footer .Form__Submit.Button.Button--primary:hover{
+  border-color: #000;
+  color: #000;
+}
+form#footer-newsletter {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+}
+.Footer__Block--newsletter input.Form__Input {
+  border: unset;
+  border-bottom: 1px solid var(--border-color);
+}
+.mobile-footer-newsletter{
+display: none ; 
+}
+.desktop-footer-newsletter{
+display: flex;
+}
+.Footer__Block.Footer__Block--logo{
+
+text-align: center;
+}
+.Footer__Block.Footer__Block--logo img {
+  height: auto;
+  width: auto !important;
+  margin: 0 auto;
+  max-width: 100px;
+}
+.Footer__Block li.Linklist__Item {
+margin-bottom: 6px;
+text-transform: uppercase;
+font-size: 12px;
+width: auto;
+}
+.Footer{
+  padding: 50px 0 10px 0
+}
+.Footer__Block.Footer__Block--newsletter{
+margin: 0 auto !important;
+line-height: 1em;
+}
+
+.Footer__Inner .Linklist{
+flex-direction: row;
+
+}
+.Footer__Inner + .Footer__Aside {
+  display: flex;
+  color: var(--navigation-text-color);
+  justify-content: center;
+  margin-top: 20px;
+}
+.Footer__Inner {
+  flex-direction: column;
+}
+#section-footer .Form__Submit.Button.Button--primary {
+  border: unset;
+  border: 1px solid #e1dcdc;
+}
+.Footer__Block.Footer__Block--links{
+width: 100%;
+margin: 50px auto 0;
+}
+.Footer__Block.Footer__Block--newsletter {
+  margin: 0 auto !important;
+  line-height: 1em;
+  width: 40%;
+  min-width: 300px;
+}
+.Footer__Block.Footer__Block--links{
+font-size: 13px;
+}
+.Footer__Title.Heading.u-h6{
+  font-size: 18px;
+  margin-bottom: 35px;
+  text-transform: lowercase;
+  /* text-transform: capitalize; */
+  letter-spacing: .2em;
+  font-family: var(--text-font-family);
+}
+#section-footer .Form__Submit.Button.Button--primary{
+font-family: var(--heading-font-family)
+}
+.shopify-section--bordered + .shopify-section--footer{
+  display: none;
+}
+.Footer__Block.Footer__Block--image{
+
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  height: auto;
+  border-style: none;
+}
+.Footer__Block.Footer__Block--image img{
+  max-width: 50px;
+  margin-top: 20px;
+}
+.footer-copyright-custom {
+  margin-left: 20px;
+}
+.footer-copyright-custom p {
+  width: 200px;
+
+}
+.SidebarMenu__Nav--secondary .Link--primary {
+    text-transform: lowercase !important;
+    font-size: 16px;
+    color: #000;
+}
+@media screen and (max-width: 500px){
+  .features--heading-normal .u-h1, .features--heading-normal .Rte h1 {
+    font-size: 16px;
+}
+.Footer__Title.Heading.u-h6{
+  margin-bottom: 20px;
+}
+  .Footer__Title.Heading.u-h6{
+    font-size: 18px;
+  }
+.Footer__Inner .Linklist {
+  display: grid;
+  text-align: center;
+  position: relative;
+  grid-template-columns: 1fr 1fr;
+  width: 70%;
+  margin: 0 auto;
+}
+.Header__Icon + .Header__Icon {
+  margin-left: 10px;
+}
+.Header__LogoImage,
+.Header__FlexItem.Header__FlexItem--logo{
+  min-width: 250px
+}
+#section-footer input.Form__Input {
+  margin-bottom: 15px;
+  border:unset;
+  border-bottom: 1px solid var(--border-color);
+  width: 70%;
+  margin: 0 auto 15px;
+}
+#section-footer .Form__Submit.Button.Button--primary {
+  width: auto;
+  margin-left: 0;
+}
+#section-footer input.Form__Input{
+  margin: 0;
+}
+.Footer__Block.Footer__Block--logo{
+  margin: 0 auto;
+}
+.mobile-footer-newsletter{
+  display: flex; 
+  flex-direction: column;
+}
+.Footer__Block.Footer__Block--newsletter{
+  display: none !important;
+}
+.Footer__Block li.Linklist__Item{
+  width: auto;
+  margin: 5px;
+}
+/* Collection list on HP */
+  .CollectionItem__Wrapper{
+    height: 100%;
+  }
+  .CollectionList--spaced .CollectionItem {
+    padding: 10px 0;
+  }
+  .CollectionList--grid{
+    margin: 0;
+  }
+  .CollectionItem {
+    display: block !important;
+    flex: 0 1 0;
+    width: 100%;
+  }
+  .CollectionList--spaced{
+    height: 50vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  /* End Collection list HP */
+  .custom-journal-slideshow {
+    max-height: 50vh !important;
+  }
+}

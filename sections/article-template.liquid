@@ -1,0 +1,139 @@
+
+{%- assign share_url = shop.url | append: article.url -%}
+{%- assign twitter_text = article.title -%}
+{%- assign pinterest_description = article.description | strip_html | truncatewords: 15 | url_param_escape -%}
+{%- assign pinterest_image = article.image | img_url: '750x' | prepend: 'https:' -%}
+
+<article class="Article" data-section-id="{{ section.id }}" data-section-type="article">
+  {%- if article.image and section.settings.show_banner_article_image -%}
+    <div class="Article__ImageWrapper" style="background-image: url({{ article.image | img_url: '1x1' }})">
+      <div class="Article__Image Image--lazyLoad Image--fadeIn"
+           data-bgset="{{ article.image | img_url: '400x' }} 400w, {{ article.image | img_url: '600x' }} 600w, {{ article.image | img_url: '800x' }} 800w, {{ article.image | img_url: '1200x' }} 1200w, {{ article.image | img_url: '1400x' }} 1400w, {{ article.image | img_url: '1600x' }} 1600w">
+      </div>
+    </div>
+  {%- endif -%}
+  
+ 
+
+  <div class="Article__Wrapper">
+    <div class="Article__Content">
+      <header class="Article__Header">
+        {%- comment -%}
+        {%- capture article_meta -%}
+          {%- if section.settings.show_date -%}
+            <span class="Article__MetaItem">{{ article.published_at | date: format: 'month_day_year' }}</span>
+          {%- endif -%}
+
+          {%- if section.settings.show_category and article.tags != empty -%}
+            <span class="Article__MetaItem">{{ article.tags.first }}</span>
+          {%- endif -%}
+        {%- endcapture -%}
+
+        {%- if article_meta != blank -%}
+          <div class="Article__Meta Heading Text--subdued u-h6">
+            {{- article_meta -}}
+          </div>
+        {%- endif -%}
+{%- endcomment -%}
+        <h1 class="Article__Title Heading u-h1">{{ article.title }}</h1>
+      </header>
+
+      <div class="Article__Body Rte">
+        {{ article.content }}
+      </div>
+{%- comment -%}
+      {%- capture article_footer -%}
+        {%- if section.settings.show_author -%}
+          <span class="Article__Author Heading Text--subdued u-h6">{{ 'blog.article.written_by' | t: author: article.author }}</span>
+        {%- endif -%}
+
+        {%- if section.settings.show_share_buttons -%}
+          <div class="Article__ShareButtons ShareButtons">
+            <a class="ShareButtons__Item ShareButtons__Item--facebook" href="https://www.facebook.com/sharer.php?u={{ share_url }}" target="_blank" rel="noopener">{%- render 'icon' with 'facebook' -%}</a>
+            <a class="ShareButtons__Item ShareButtons__Item--twitter" href="https://twitter.com/share?{% if twitter_text != blank %}text={{twitter_text}}&{% endif %}url={{ share_url }}" target="_blank" rel="noopener">{%- render 'icon' with 'twitter' -%}</a>
+            <a class="ShareButtons__Item ShareButtons__Item--pinterest" href="https://pinterest.com/pin/create/button/?url={{ share_url }}{% if pinterest_image != blank %}&media={{ pinterest_image }}{% endif %}&description={{ pinterest_description }}" target="_blank" rel="noopener">{%- render 'icon' with 'pinterest' -%}</a>
+          </div>
+        {%- endif -%}
+      {%- endcapture -%}
+
+      {%- if article_footer != blank -%}
+        <footer class="Article__Footer">
+          {{ article_footer }}
+        </footer>
+      {%- endif -%}
+        {%- endcomment -%}
+    </div>
+    {% assign current_blog = request.path | split: "/" %}
+    <div class="blog-back-btn"><a href="/{{ current_blog[1] }}/{{ current_blog[2] }}"><span>&#8592;</span>Back to all posts</a></div>
+  </div>
+{% comment %}
+  {%- if blog.next_article or blog.previous_article -%}
+    <aside class="ArticleNav">
+      
+      <div class="Container Container--narrow">
+        <div class="Grid Grid--m Grid--center">
+          <h2 style="text-align: center;" class="Heading u-h2">More from the journal:</h2>
+          {%- if blog.next_article -%}
+            <div class="Grid__Cell 1/2--tablet-and-up">
+              {%- render 'article-item', article: blog.next_article -%}
+            </div>
+          {%- elsif blog.articles_count > 2 -%}
+            <div class="Grid__Cell 1/2--tablet-and-up">
+              {%- render 'article-item', article: blog.articles.last -%}
+            </div>
+          {%- endif -%}
+
+          {%- if blog.previous_article -%}
+            <div class="Grid__Cell 1/2--tablet-and-up">
+              {%- render 'article-item', article: blog.previous_article -%}
+            </div>
+          {%- elsif blog.articles_count > 3 -%}
+            <div class="Grid__Cell 1/2--tablet-and-up">
+              {%- render 'article-item', article: blog.articles.first -%}
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    </aside>
+  {%- endif -%}
+  {% endcomment %}
+</article>
+
+{% schema %}
+{
+  "name": "Blog post page",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_banner_article_image",
+      "label": "Show featured banner image",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "Show article date",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_category",
+      "label": "Show article category",
+      "info": "The first article's tag is used as the main category.",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "label": "Show author",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_share_buttons",
+      "label": "Show share buttons",
+      "default": true
+    }
+  ]
+}
+{% endschema %}
